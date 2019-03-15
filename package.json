@@ -2,6 +2,7 @@
   "name": "tracing",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://jonbonto.github.io/jne-tracking",
   "dependencies": {
     "bulma": "^0.7.4",
     "cors": "^2.8.5",
@@ -17,7 +18,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start:server": "node server.js"
+    "start:server": "node server.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"

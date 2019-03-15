@@ -11,8 +11,22 @@ class App extends Component {
     result: {}
   };
   checkResi = (noResi) => {
+    this.setState({
+      result: {}
+    });
     // callAPi
-    fetch(`http://localhost:5000/jne/${noResi}`)
+    const details = {
+      username: process.env.REACT_APP_jne_username,
+      api_key: process.env.REACT_APP_key
+    };
+    const formBody = Object.keys(details).map(key => encodeURIComponent(key) + '=' + encodeURIComponent(details[key])).join('&');
+    
+    const proxyUrl = 'https://cors-anywhere.herokuapp.com/',
+    targetUrl = `http://apiv2.jne.co.id:10101/tracing/api/list/cnote/${noResi}`;
+    fetch(proxyUrl + targetUrl, {
+      method: 'POST',
+      body: formBody
+    })
     .then(data => data.json())
     .then(result => {
       this.setState({
