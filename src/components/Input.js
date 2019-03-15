@@ -8,8 +8,9 @@ export const Input = (props) => {
   } 
   return (
     <>
-      <div className="field">
-        <div className="control">
+      <div className="field columns">
+        <div className="column" />
+        <div className="control column">
           <input 
             value={noResi}
             onChange={e => setNoResi(e.target.value)}
@@ -18,8 +19,11 @@ export const Input = (props) => {
             placeholder="No Resi" 
           />
         </div>
+        <div className="column" />
       </div>
-      <a className="button is-primary" onClick={checkResi}>Cek Resi</a>
+      <div className="has-text-centered">
+        <a className="button is-primary" onClick={checkResi}>Cek Resi</a>
+      </div>
     </>
   );
 }

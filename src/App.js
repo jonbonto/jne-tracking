@@ -12,18 +12,7 @@ class App extends Component {
   };
   checkResi = (noResi) => {
     // callAPi
-    // const details = {
-    //   username: process.env.username',
-    //   api_key: process.env.key
-    // };
-    // const formBody = Object.keys(details).map(key => encodeURIComponent(key) + '=' + encodeURIComponent(details[key])).join('&');
-    // fetch(`http://localhost:8080/jne/${noResi}`, {
-    //   headers: {
-    //     'Content-Type': 'application/x-www-form-urlencoded',
-    //     'Accept': 'application/json'
-    //   },
-    //   body: formBody
-    fetch(`http://localhost:8080/jne/${noResi}`)
+    fetch(`http://localhost:5000/jne/${noResi}`)
     .then(data => data.json())
     .then(result => {
       this.setState({
@@ -33,9 +22,9 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="container has-text-centered">
-        <h1 className="title">CEK RESI</h1>
-        <h2 className="subtitle">Masukkan No Resi yang ingin di cek</h2>
+      <div className="container">
+        <h1 className="title has-text-centered">CEK RESI</h1>
+        <h2 className="subtitle has-text-centered">Masukkan No Resi yang ingin di cek</h2>
         <Input checkResi={this.checkResi}/>
         <Result result={this.state.result}/>
       </div>
